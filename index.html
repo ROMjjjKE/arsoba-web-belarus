@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Арсоба Роман — разработка сайтов, контекстная реклама и ИИ-решения для бизнеса</title>
+<meta name="description" content="Самозанятый Арсоба Роман Станиславович: разработка веб-сайтов любого уровня, настройка и ведение контекстной рекламы, ИИ-решения для бизнеса. Сайты под ключ. Беларусь, работаю удалённо. +375 44 578-30-37">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0E0F12;--bg2:#14161B;--pan:#181B21;--line:#262A32;--ink:#F2F4F1;--mut:#9BA3AD;--acc:#C6F24E;--accd:#A8D632;--err:#FF6B4A;--mono:'JetBrains Mono',ui-monospace,monospace;--disp:'Unbounded',Arial,sans-serif;--sans:'Inter',system-ui,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);overflow-x:hidden;font-size:16px;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 22px}
+.mono{font-family:var(--mono)}
+.k{color:var(--acc)}
+/* прелоадер: CSS сам прячет через 1.45с, JS убирает раньше */
+#pre{position:fixed;inset:0;z-index:2000;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px}
+#pre .pl{font-family:var(--mono);font-size:13px;color:var(--mut);letter-spacing:.08em}
+#pre .bar{width:180px;height:2px;background:var(--line);position:relative;overflow:hidden}
+#pre .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--acc);width:0;animation:pload 1.45s ease forwards}
+#pre .sig{font-family:var(--disp);font-weight:800;font-size:15px;color:var(--ink)}
+@keyframes pload{0%{width:0}60%{width:70%}100%{width:100%}}
+body.js #pre{animation:phide .4s ease 1.45s forwards}
+@keyframes phide{to{opacity:0;visibility:hidden;pointer-events:none}}
+body.lod #pre{display:none}
+/* курсор */
+#cur{display:none}
+@media(pointer:fine){body.cur #cur{display:block;position:fixed;z-index:1500;width:26px;height:26px;border:1.5px solid var(--acc);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);transition:width .15s,height .15s;background:rgba(198,242,78,.06)}}
+/* шапка */
+header{position:sticky;top:0;z-index:100;background:rgba(14,15,18,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 0}
+.logo{font-family:var(--disp);font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase}
+.logo span{color:var(--acc)}
+nav.main{display:flex;gap:4px}
+nav.main a{font-size:13.5px;font-weight:500;color:var(--mut);padding:8px 11px;border-radius:7px}
+nav.main a:hover{color:var(--ink);background:var(--bg2)}
+.hcall{display:flex;gap:9px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:14.5px;padding:12px 19px;border-radius:9px;transition:.18s;cursor:pointer;border:none;font-family:var(--sans)}
+.btn-acc{background:var(--acc);color:#111508}
+.btn-acc:hover{background:var(--accd);transform:translateY(-1px)}
+.btn-ln{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
+.btn-ln:hover{border-color:var(--acc);color:var(--acc)}
+.burger{display:none;background:none;border:1.5px solid var(--line);border-radius:8px;padding:9px 10px;cursor:pointer}
+.burger span{display:block;width:19px;height:2px;background:var(--ink);margin:4px 0}
+/* hero: терминал + кинетика */
+.hero{position:relative;border-bottom:1px solid var(--line);overflow:hidden}
+.hero .term{border-bottom:1px solid var(--line);background:var(--bg2);padding:9px 22px;display:flex;gap:8px;align-items:center}
+.term .dot{width:9px;height:9px;border-radius:50%;background:#3A4048}
+.term .dot.g{background:var(--acc)}
+.term .pth{font-family:var(--mono);font-size:12px;color:var(--mut)}
+.hgrid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;padding:64px 0 54px;align-items:center;position:relative}
+.tagline{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12.5px;color:var(--acc);border:1px solid #3A4420;background:#191F0E;padding:7px 13px;border-radius:999px;margin-bottom:22px}
+h1{font-family:var(--disp);font-weight:800;font-size:clamp(26px,3.9vw,52px);line-height:1.14;text-transform:uppercase;letter-spacing:.005em}
+h1 em{font-style:normal;color:var(--acc)}
+.caret{display:inline-block;width:.55em;height:1.05em;background:var(--acc);vertical-align:-.12em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hsub{font-size:16.5px;line-height:1.65;color:var(--mut);max-width:560px;margin-top:20px}
+.hsub b{color:var(--ink)}
+.hbtns{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.hmeta{display:flex;gap:22px;flex-wrap:wrap;margin-top:30px}
+.hmeta .m{font-family:var(--mono);font-size:12px;color:var(--mut)}
+.hmeta .m b{display:block;color:var(--ink);font-size:14px;margin-top:3px}
+/* кинетические строки */
+.kin{overflow:hidden;border-top:1px solid var(--line);background:var(--bg)}
+.kin .row{display:flex;width:max-content;gap:0}
+.kin .cell{font-family:var(--disp);font-weight:800;font-size:clamp(28px,4.6vw,58px);text-transform:uppercase;white-space:nowrap;padding:16px 28px;line-height:1;color:transparent;-webkit-text-stroke:1px #3D4450}
+.kin .cell.solid{color:var(--acc);-webkit-text-stroke:0}
+@keyframes slideL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.kin .row{animation:slideL 26s linear infinite}
+.kin.rev .row{animation-direction:reverse}
+/* reveal */
+.fx{opacity:0;transform:translateY(16px)}
+body.js .fx{transition:opacity .55s ease,transform .55s ease}
+body.js .fx.in{opacity:1;transform:none}
+body:not(.js) .fx{opacity:1;transform:none}
+/* секции */
+section.blk{padding:64px 0}
+.kick{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--acc);text-transform:uppercase;margin-bottom:12px}
+h2{font-family:var(--disp);font-weight:800;font-size:clamp(22px,3vw,36px);line-height:1.18;text-transform:uppercase;margin-bottom:14px}
+.lead{color:var(--mut);font-size:16px;line-height:1.65;max-width:640px}
+/* конфигуратор */
+#build{background:var(--bg);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.bgrid{display:grid;grid-template-columns:340px 1fr;gap:28px;margin-top:34px;align-items:start}
+.chips{display:flex;flex-direction:column;gap:22px}
+.cgroup .cg-t{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:var(--mut);text-transform:uppercase;margin-bottom:9px}
+.chipset{display:flex;flex-wrap:wrap;gap:7px}
+.chip{font-size:13px;font-weight:600;padding:8px 13px;border-radius:999px;border:1.5px solid var(--line);color:var(--mut);cursor:pointer;transition:.15s;user-select:none}
+.chip:hover{border-color:#4A5230;color:var(--ink)}
+.chip.on{background:var(--acc);border-color:var(--acc);color:#111508}
+.swatches{display:flex;gap:9px}
+.sw{width:34px;height:34px;border-radius:9px;border:2px solid transparent;cursor:pointer;transition:.15s}
+.sw.on{border-color:var(--ink);transform:scale(1.08)}
+.bnote{font-size:12.5px;color:var(--mut);line-height:1.6;border-left:2px solid var(--acc);padding-left:12px;margin-top:26px}
+/* рамка браузера */
+.frame{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg2)}
+.frame .fbar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line)}
+.frame .fdot{width:9px;height:9px;border-radius:50%;background:#3A4048}
+.frame .furl{flex:1;font-family:var(--mono);font-size:11.5px;color:var(--mut);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:5px 10px;margin-left:6px}
+.frame .fstat{font-family:var(--mono);font-size:10.5px;color:var(--mut)}
+.frame .fstat b{color:var(--acc)}
+.site{padding:26px;min-height:420px;position:relative}
+/* мини-сайт */
+.wb{transition:opacity .5s ease,transform .5s ease}
+body.js .wb{opacity:0;transform:translateY(10px)}
+body.js .wb.in{opacity:1;transform:none}
+body:not(.js) .wb{opacity:1;transform:none}
+.wb-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:34px}
+.wb-logo{font-family:var(--disp);font-weight:800;font-size:12px;letter-spacing:.06em}
+.wb-nav{display:flex;gap:10px}
+.wb-nav i{display:block;width:34px;height:5px;border-radius:3px;background:#333B47}
+.wb-h1{font-family:var(--disp);font-weight:800;font-size:clamp(20px,2.6vw,30px);line-height:1.2;text-transform:uppercase;max-width:420px;margin-bottom:12px}
+.wb-sub{height:8px;border-radius:4px;background:#2A313C;width:70%;margin-bottom:7px}
+.wb-sub.w60{width:58%}
+.wb-btn{display:inline-flex;align-items:center;font-family:var(--mono);font-weight:700;font-size:11px;color:#111508;background:var(--wacc,#C6F24E);border-radius:6px;padding:8px 14px;margin-top:14px}
+.wb-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:28px}
+.wb-card{border:1px solid #2A313C;border-radius:10px;padding:13px}
+.wb-card .ic{width:22px;height:22px;border-radius:6px;background:var(--wacc,#C6F24E);opacity:.85;margin-bottom:9px}
+.wb-card .t{height:6px;border-radius:3px;background:#2A313C;width:80%;margin-bottom:6px}
+.wb-card .t2{height:5px;border-radius:3px;background:#232934;width:95%}
+.wb-foot{border-top:1px solid #2A313C;margin-top:28px;padding-top:13px;display:flex;justify-content:space-between}
+.wb-foot .fl{height:5px;border-radius:3px;background:#2A313C;width:110px}
+.wb-foot .fr2{height:5px;border-radius:3px;background:#2A313C;width:70px}
+/* штамп готовности */
+.stamp{position:absolute;right:22px;bottom:18px;font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.14em;color:#111508;background:var(--acc);padding:9px 14px;border-radius:8px;transform:rotate(-3deg) scale(.8);opacity:0;transition:.4s cubic-bezier(.2,1.4,.4,1)}
+.stamp.on{opacity:1;transform:rotate(-3deg) scale(1)}
+.stagebar{display:flex;align-items:center;gap:10px;margin-top:16px}
+.stagebar .sb{flex:1;height:4px;border-radius:2px;background:var(--line);overflow:hidden}
+.stagebar .sb i{display:block;height:100%;background:var(--acc);width:0;transition:width .5s ease}
+.replay{background:none;border:1.5px dashed #4A5230;color:var(--mut);border-radius:8px;padding:8px 14px;font-family:var(--mono);font-size:11.5px;cursor:pointer;transition:.15s}
+.replay:hover{color:var(--acc);border-color:var(--acc)}
+.replay.on{color:var(--acc);border-color:var(--acc);border-style:solid}
+/* услуги — строки, не карточки */
+.svc{border-top:1px solid #E4E6E1}
+.srow{border-bottom:1px solid #E4E6E1;padding:26px 0;display:grid;grid-template-columns:70px 1fr auto;gap:20px;align-items:baseline;cursor:pointer;transition:background .2s}
+.srow:hover{background:#F6F7F3}
+.srow .n{font-family:var(--mono);font-size:13px;font-weight:700;color:#8A9350}
+.srow .st{font-family:var(--disp);font-weight:600;font-size:clamp(19px,2.6vw,29px);text-transform:uppercase;letter-spacing:.01em}
+.srow .plus{font-family:var(--mono);font-size:22px;color:#B4B8A6;transition:transform .25s}
+.srow .sd{grid-column:2/4;display:none;font-size:15px;line-height:1.7;color:#565E44;max-width:640px;padding-top:10px}
+.srow.open .sd{display:block}
+.srow.open .plus{transform:rotate(45deg)}
+/* git-таймлайн */
+.git{margin-top:36px;font-family:var(--mono)}
+.gcommit{display:grid;grid-template-columns:20px 1fr;gap:16px;position:relative;padding:0 0 30px 0}
+.gcommit:last-child{padding-bottom:0}
+.gcommit .gl{position:relative}
+.gcommit .gl::before{content:'';position:absolute;left:8px;top:6px;bottom:-6px;width:2px;background:var(--line)}
+.gcommit:last-child .gl::before{display:none}
+.gcommit .dot{position:absolute;left:2px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2.5px solid var(--acc);z-index:1}
+.gcommit .gh{font-size:12px;color:var(--mut);margin-bottom:5px}
+.gcommit .gh b{color:var(--acc);font-weight:700}
+.gcommit .gt{font-family:var(--disp);font-size:16.5px;font-weight:600;color:var(--ink);margin-bottom:6px;text-transform:uppercase;letter-spacing:.02em}
+.gcommit .gd{font-size:13.5px;line-height:1.65;color:var(--mut);max-width:560px}
+/* ИИ */
+.ai{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ai-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:32px}
+.ai-chip{border:1px solid var(--line);border-radius:12px;padding:20px;transition:.2s;background:var(--bg)}
+.ai-chip:hover{border-color:var(--acc);transform:translateY(-2px)}
+.ai-chip .ic{font-family:var(--mono);font-size:11px;color:var(--acc);letter-spacing:.1em;margin-bottom:10px}
+.ai-chip b{display:block;font-size:16px;margin-bottom:7px}
+.ai-chip p{font-size:13.5px;line-height:1.6;color:var(--mut)}
+/* форма */
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:34px;align-items:start}
+.fcard{border:1px solid var(--line);border-radius:14px;padding:30px;background:var(--bg2)}
+.frm{display:grid;gap:13px}
+.frm label{font-size:12.5px;font-weight:700;color:var(--mut);display:block;margin-bottom:5px}
+.frm input,.frm textarea{width:100%;border:1.5px solid var(--line);border-radius:9px;padding:12px 14px;font-size:15px;font-family:inherit;background:var(--bg);color:var(--ink)}
+.frm input:focus,.frm textarea:focus{outline:none;border-color:var(--acc)}
+.frm textarea{min-height:96px;resize:vertical}
+.okmsg{display:none;background:#191F0E;border:1px solid #3A4420;color:var(--acc);border-radius:9px;padding:13px 15px;font-size:14px;font-weight:600}
+.contacts-mini{display:flex;flex-direction:column;gap:10px}
+.cline{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:11px;padding:15px 16px;transition:.18s}
+.cline:hover{border-color:var(--acc)}
+.cline .ct{font-family:var(--mono);font-size:11px;color:var(--mut);letter-spacing:.08em;display:block}
+.cline b{font-size:16px}
+/* футер-CTA */
+.cta{border-top:1px solid var(--line);padding:70px 0 40px;text-align:center}
+.cta .gphone{font-family:var(--disp);font-weight:800;font-size:clamp(30px,7vw,84px);letter-spacing:.01em;color:var(--ink);display:block;margin:18px 0 26px;transition:color .2s}
+.cta .gphone:hover{color:var(--acc)}
+footer{padding:26px 0 60px;border-top:1px solid var(--line)}
+.frow{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--mut)}
+.frow a:hover{color:var(--acc)}
+/* watermark */
+.wm{position:fixed;right:14px;bottom:14px;z-index:9990;font-family:var(--mono);font-size:11px;color:#8A9350;background:rgba(24,27,33,.85);border:1px solid #2E3540;padding:6px 11px;border-radius:7px}
+.wm:hover{color:var(--acc)}
+/* мобильная панель */
+.mobb{display:none;position:fixed;left:0;right:0;bottom:0;z-index:9991;background:var(--bg2);border-top:1px solid var(--line)}
+.mobb .mrow{display:grid;grid-template-columns:1fr 1fr}
+.mobb a{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 8px;color:var(--ink);font-weight:700;font-size:14px}
+.mobb a:first-child{border-right:1px solid var(--line)}
+@media(max-width:1023px){nav.main{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg2);flex-direction:column;padding:10px 14px;border-bottom:1px solid var(--line)}
+nav.main.open{display:flex}
+.burger{display:block}
+.hgrid{grid-template-columns:1fr;gap:30px;padding:44px 0 40px}
+.bgrid{grid-template-columns:1fr}
+.fgrid{grid-template-columns:1fr}
+.srow{grid-template-columns:44px 1fr auto}
+footer{padding-bottom:140px}}
+@media(max-width:600px){.hcall .btn{display:none}
+.wb-cards{grid-template-columns:1fr 1fr}
+.mobb{display:block}}
+</style>
+</head>
+<body>
+<div id="pre"><div class="sig">ARSOBA<span style="color:var(--acc)">.DEV</span></div><div class="bar"><i></i></div><div class="pl">инициализация сайта…</div></div>
+<div id="cur"></div>
+<header>
+  <div class="wrap hrow">
+    <a href="#top" class="logo">Арсоба<span>.dev</span></a>
+    <nav class="main" id="nav">
+      <a href="#build">Собрать сайт</a>
+      <a href="#uslugi">Услуги</a>
+      <a href="#protsess">Как работаю</a>
+      <a href="#ai">ИИ-решения</a>
+      <a href="#kontakt">Контакты</a>
+    </nav>
+    <div class="hcall">
+      <a href="tel:+375445783037" class="btn btn-ln">+375 44 578-30-37</a>
+      <a href="https://wa.me/375445783037" class="btn btn-acc">Обсудить проект</a>
+      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<main id="top">
+<section class="hero">
+  <div class="term"><span class="dot"></span><span class="dot"></span><span class="dot g"></span><span class="pth">~/бизнес/сайт — сборка</span></div>
+  <div class="wrap hgrid">
+    <div>
+      <span class="tagline">самозанятый · арсоба роман станиславович</span>
+      <h1>Разработка сайтов <em>любого уровня</em><span class="caret"></span></h1>
+      <p class="hsub"><b>От лендинга до сложного портала.</b> Контекстная реклама, чтобы сайт видели. ИИ-решения, чтобы бизнес не тратил время на рутину. Один исполнитель — весь цикл: от идеи до запуска и поддержки.</p>
+      <div class="hbtns">
+        <a href="https://wa.me/375445783037" class="btn btn-acc">Написать в WhatsApp</a>
+        <a href="tel:+375445783037" class="btn btn-ln">+375 44 578-30-37</a>
+      </div>
+      <div class="hmeta">
+        <div class="m">СТАТУС<b>принимаю заказы</b></div>
+        <div class="m">ГЕОГРАФИЯ<b>Беларусь · удалённо</b></div>
+        <div class="m">ФОРМАТ<b>под ключ</b></div>
+      </div>
+    </div>
+    <div class="frame" style="border-color:var(--line)">
+      <div class="fbar"><span class="fdot"></span><span class="fdot"></span><span class="fdot" style="background:#5B6442"></span><span class="furl">ваш-бизнес.by</span></div>
+      <div class="site">
+        <div class="wb wb-head in"><span class="wb-logo" style="color:var(--acc)">ВАШ_БРЕНД</span><span class="wb-nav"><i></i><i></i><i></i></span></div>
+        <div class="wb wb-hero">
+          <div class="wb-h1">Сайт, который <span style="color:var(--acc)">продаёт</span></div>
+          <div class="wb-sub"></div><div class="wb-sub w60"></div>
+          <span class="wb-btn">ОСТАВИТЬ ЗАЯВКУ</span>
+        </div>
+        <div class="wb wb-cards">
+          <div class="wb-card"><div class="ic"></div><div class="t"></div><div class="t2"></div></div>
+          <div class="wb-card"><div class="ic"></div><div class="t"></div><div class="t2"></div></div>
+          <div class="wb-card"><div class="ic"></div><div class="t"></div><div class="t2"></div></div>
+        </div>
+        <div class="wb wb-foot"><span class="fl"></span><span class="fr2"></span></div>
+        <div class="stamp" id="stamp">ГОТОВО · САЙТ ПОД КЛЮЧ · АРСОБА</div>
+      </div>
+      <div class="fbar" style="border-top:1px solid var(--line);border-bottom:none">
+        <span class="fstat">блоков: <b id="wcnt">0</b>/5 · этап <b id="wstage">0</b>/5</span>
+        <button class="replay" id="wreplay">▶ проиграть заново</button>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="kin">
+  <div class="row">
+    <span class="cell">САЙТЫ</span><span class="cell solid">ЛЮБОГО УРОВНЯ</span><span class="cell">КОНТЕКСТНАЯ РЕКЛАМА</span><span class="cell solid">ИИ-РЕШЕНИЯ</span>
+    <span class="cell">САЙТЫ</span><span class="cell solid">ЛЮБОГО УРОВНЯ</span><span class="cell">КОНТЕКСТНАЯ РЕКЛАМА</span><span class="cell solid">ИИ-РЕШЕНИЯ</span>
+  </div>
+</div>
+
+<section class="blk" id="build">
+  <div class="wrap">
+    <div class="kick">интерактив</div>
+    <h2>Соберите свой сайт за минуту</h2>
+    <p class="lead">Выберите параметры — и посмотрите, как из блоков собирается страница. Ровно так же прозрачно я собираю и настоящий сайт: по этапам, с вами на связи.</p>
+    <div class="bgrid">
+      <div class="chips">
+        <div class="cgroup">
+          <div class="cg-t">Тип сайта</div>
+          <div class="chipset" id="ch-type">
+            <span class="chip on">Лендинг</span><span class="chip">Корпоративный</span><span class="chip">Интернет-магазин</span><span class="chip">Портал / сервис</span>
+          </div>
+        </div>
+        <div class="cgroup">
+          <div class="cg-t">Стиль</div>
+          <div class="chipset" id="ch-style">
+            <span class="chip on">Минимализм</span><span class="chip">Тёмный премиум</span><span class="chip">Брутализм</span>
+          </div>
+        </div>
+        <div class="cgroup">
+          <div class="cg-t">Акцентный цвет</div>
+          <div class="swatches" id="ch-acc">
+            <span class="sw on" data-c="#C6F24E" style="background:#C6F24E"></span>
+            <span class="sw" data-c="#7CC4D8" style="background:#7CC4D8"></span>
+            <span class="sw" data-c="#FF8A5B" style="background:#FF8A5B"></span>
+            <span class="sw" data-c="#B39BFF" style="background:#B39BFF"></span>
+          </div>
+        </div>
+        <p class="bnote">Это демонстрация процесса. Реальный сайт собираю под вашу задачу: структура, тексты, дизайн и реклама — всё обсуждается до старта.</p>
+      </div>
+      <div class="frame" id="wowframe">
+        <div class="fbar"><span class="fdot"></span><span class="fdot"></span><span class="fdot" style="background:#5B6442"></span><span class="furl" id="wurl">мой-бренд.by</span><span class="fstat">этап <b id="wstage2">0</b>/5</span></div>
+        <div class="site">
+          <div class="wb wb-head"><span class="wb-logo" id="wlogo">МОЙ_БРЕНД</span><span class="wb-nav"><i></i><i></i><i></i></span></div>
+          <div class="wb wb-hero">
+            <div class="wb-h1" id="wh1">Ваш заголовок здесь</div>
+            <div class="wb-sub"></div><div class="wb-sub w60"></div>
+            <span class="wb-btn" id="wbtn">КУПИТЬ СЕЙЧАС</span>
+          </div>
+          <div class="wb wb-cards">
+            <div class="wb-card"><div class="ic"></div><div class="t"></div><div class="t2"></div></div>
+            <div class="wb-card"><div class="ic"></div><div class="t"></div><div class="t2"></div></div>
+            <div class="wb-card"><div class="ic"></div><div class="t"></div><div class="t2"></div></div>
+          </div>
+          <div class="wb wb-foot"><span class="fl"></span><span class="fr2"></span></div>
+          <div class="stamp" id="wstamp">ГОТОВО · ВАШ САЙТ · ARSOBA.DEV</div>
+        </div>
+        <div class="stagebar" style="padding:0 26px 20px">
+          <div class="sb"><i id="sb1"></i></div><div class="sb"><i id="sb2"></i></div><div class="sb"><i id="sb3"></i></div><div class="sb"><i id="sb4"></i></div><div class="sb"><i id="sb5"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="blk" id="uslugi" style="background:#F2F3EE;color:#191D14">
+  <div class="wrap svc">
+    <div class="kick" style="color:#77822E">услуги</div>
+    <h2>Что я делаю</h2>
+    <p class="lead" style="color:#565E44">Три направления, которые усиливают друг друга: сайт приводит клиентов, реклама делает его видимым, ИИ снижает стоимость рутины.</p>
+    <div style="margin-top:30px">
+      <div class="srow open"><span class="n">/01</span><span class="st">Разработка веб-сайтов любого уровня</span><span class="plus">+</span>
+        <div class="sd">От одностраничного лендинга до интернет-магазина и портала. Дизайн под ваш бизнес, адаптивность под все экраны, скорость загрузки и понятная админка. Сайт — это инструмент продаж, поэтому каждый проект начинаю с вопроса «что должен делать этот сайт для вашего кошелька».</div>
+      </div>
+      <div class="srow"><span class="n">/02</span><span class="st">Контекстная реклама</span><span class="plus">+</span>
+        <div class="sd">Настройка и ведение рекламных кампаний: от подбора запросов до отчётов по заявкам. Свожу в связку сайт и рекламу: реклама приводит трафик, сайт превращает его в звонки и заявки. Работаю с целями, а не с «охватами».</div>
+      </div>
+      <div class="srow"><span class="n">/03</span><span class="st">ИИ-решения для бизнеса</span><span class="plus">+</span>
+        <div class="sd">Чат-боты для сайта и мессенджеров, автоматизация ответов клиентам, генерация и обработка контента, интеграции ИИ в рабочие процессы. Задача — убрать рутину, которая съедает часы, и оставить людям то, что делает человека.</div>
+      </div>
+      <div class="srow"><span class="n">/04</span><span class="st">Поддержка и развитие</span><span class="plus">+</span>
+        <div class="sd">Запуск — не конец. Обновляю контент, следя за скоростью и стабильностью, развиваю сайт по мере роста бизнеса. Один ответственный исполнитель вместо конвейера из подрядчиков.</div>
+      </div>
+    </div>
+    <p class="mono" style="font-size:12.5px;color:#77822E;margin-top:24px">Цена — по телефону: зависит от задачи. Обсудим — назову честную вилку до старта.</p>
+  </div>
+</section>
+
+<section class="blk" id="protsess">
+  <div class="wrap">
+    <div class="kick">процесс</div>
+    <h2>От первого сообщения до запуска</h2>
+    <p class="lead">Работа над проектом выглядит как чистая история коммитов: каждый шаг виден, ничего не теряется.</p>
+    <div class="git">
+      <div class="gcommit"><div class="gl"><span class="dot"></span></div><div><div class="gh">commit <b>a1b2c3</b> · этап 1</div><div class="gt">Бриф и цель</div><div class="gd">Обсуждаем задачу: что должен делать сайт, кто клиент, какой результат считаем успехом. Сразу говорю, что реально сделать в вашем бюджете.</div></div></div>
+      <div class="gcommit"><div class="gl"><span class="dot"></span></div><div><div class="gh">commit <b>d4e5f6</b> · этап 2</div><div class="gt">Концепция и структура</div><div class="gd">Собираю смысл: разделы, тексты, порядок блоков. Вы видите структуру будущего сайта до первой строчки кода.</div></div></div>
+      <div class="gcommit"><div class="gl"><span class="dot"></span></div><div><div class="gh">commit <b>07g8h9</b> · этап 3</div><div class="gt">Дизайн и вёрстка</div><div class="gd">Индивидуальный дизайн под ваш бренд, а не шаблон. Все экраны — от телефона до монитора.</div></div></div>
+      <div class="gcommit"><div class="gl"><span class="dot"></span></div><div><div class="gh">commit <b>i0j1k2</b> · этап 4</div><div class="gt">Контент и реклама</div><div class="gd">Тексты, фото, подключение аналитики. Параллельно настраиваю контекстную рекламу, чтобы сайт не ждал клиентов после запуска.</div></div></div>
+      <div class="gcommit"><div class="gl"><span class="dot"></span></div><div><div class="gh">commit <b>m3n4p5</b> · этап 5</div><div class="gt">Запуск и развитие</div><div class="gd">Публикация, проверка скорости и форм, обучение работе с сайтом. Дальше — поддержка и рост: сайт, реклама и ИИ работают на вашу выручку.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="blk ai" id="ai">
+  <div class="wrap">
+    <div class="kick">ии-решения</div>
+    <h2>Где ИИ экономит ваши часы</h2>
+    <p class="lead">Искусственный интеллект — не модное слово, а способ делегировать рутину. Направления, которые чаще всего просят:</p>
+    <div class="ai-grid">
+      <div class="ai-chip fx"><div class="ic">// БОТЫ</div><b>Чат-боты для сайта и мессенджеров</b><p>Отвечают клиентам 24/7: цены, наличие, запись, консультация. Пока конкурент пишет ответ вручную — ваш бот уже записал клиента.</p></div>
+      <div class="ai-chip fx"><div class="ic">// КОНТЕНТ</div><b>Генерация и обработка контента</b><p>Тексты, описания товаров, идеи для соцсетей и рекламы — в едином стиле бренда, в разы быстрее.</p></div>
+      <div class="ai-chip fx"><div class="ic">// ДАННЫЕ</div><b>Анализ и отчётность</b><p>Автоматические сводки по заявкам, рекламе и продажам: цифры превращаются в понятные выводы и решения.</p></div>
+      <div class="ai-chip fx"><div class="ic">// ИНТЕГРАЦИИ</div><b>ИИ в ваши процессы</b><p>Подключение языковых моделей к CRM, таблицам и сайту — чтобы рутинные операции делались сами.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="kontakt">
+  <div class="wrap">
+    <div class="kick">контакты</div>
+    <h2>Расскажите о задаче</h2>
+    <p class="lead">Ответ в течение дня. По телефону быстрее.</p>
+    <div class="fgrid">
+      <div class="fcard fx">
+        <form id="brief-form" novalidate>
+          <div class="frm">
+            <div><label for="bf-name">Ваше имя</label><input id="bf-name" name="name" placeholder="Как к вам обращаться" required></div>
+            <div><label for="bf-tel">Телефон или мессенджер</label><input id="bf-tel" name="tel" placeholder="+375 __ ___-__-__" required></div>
+            <div><label for="bf-msg">Задача</label><textarea id="bf-msg" name="msg" placeholder="Например: нужен сайт для автосервиса + реклама, бюджет обсудим"></textarea></div>
+            <button class="btn btn-acc" type="submit" style="width:100%">Отправить</button>
+            <div class="okmsg" id="bf-ok">Заявка принята! Свяжусь, обсудим задачу и назову вилку по срокам и бюджету.</div>
+          </div>
+        </form>
+      </div>
+      <div class="contacts-mini fx">
+        <a class="cline" href="tel:+375445783037"><div><span class="ct">ТЕЛЕФОН</span><b>+375 44 578-30-37</b></div></a>
+        <a class="cline" href="https://wa.me/375445783037" target="_blank" rel="noopener"><div><span class="ct">WHATSAPP</span><b>Написать сообщение</b></div></a>
+        <a class="cline" href="viber://chat?number=%2B375445783037"><div><span class="ct">VIBER</span><b>Открыть чат</b></div></a>
+        <div class="cline" style="cursor:default"><div><span class="ct">ИСПОЛНИТЕЛЬ</span><b>Арсоба Роман Станиславович · самозанятый</b></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="kick">звоните — отвечу сам</div>
+    <a class="gphone" href="tel:+375445783037">+375 44 578-30-37</a>
+    <div class="hbtns" style="justify-content:center">
+      <a href="https://wa.me/375445783037" class="btn btn-acc">Написать в WhatsApp</a>
+      <a href="viber://chat?number=%2B375445783037" class="btn btn-ln">Viber</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap frow">
+    <span>Арсоба Роман Станиславович · самозанятый</span>
+    <span>Сайты · Контекстная реклама · ИИ-решения</span>
+    <a href="tel:+375445783037">+375 44 578-30-37</a>
+    <span>Беларусь · работаю удалённо</span>
+    <span class="mono">Сайт-визитка: SiteFast.by</span>
+  </div>
+</footer>
+<a class="wm" href="https://sitefast.by" target="_blank" rel="noopener">Макет: SiteFast.by</a>
+<div class="mobb"><div class="mrow"><a href="tel:+375445783037">Позвонить</a><a href="https://wa.me/375445783037">WhatsApp</a></div></div>
+<script>
+(function(){
+  /* прелоадер: JS убирает раньше, CSS подстрахует */
+  window.addEventListener('load',function(){document.body.classList.add('lod');});
+  setTimeout(function(){document.body.classList.add('lod');},1600);
+
+  /* body.js + reveal поллинг 120мс */
+  document.body.classList.add('js');
+  var revealedAll=false;
+  function scanReveal(){
+    if(revealedAll) return;
+    var els=document.querySelectorAll('.fx:not(.in)');
+    var vh=window.innerHeight||800;
+    for(var i=0;i<els.length;i++){
+      var r=els[i].getBoundingClientRect();
+      if(r.top<vh-40&&r.bottom>0) els[i].classList.add('in');
+    }
+    if(els.length===0) revealedAll=true;
+  }
+  setInterval(scanReveal,120); scanReveal();
+
+  /* бургер */
+  var burger=document.getElementById('burger');
+  if(burger) burger.addEventListener('click',function(){document.getElementById('nav').classList.toggle('open');});
+
+  /* кастомный курсор (pointer:fine) */
+  if(matchMedia('(pointer:fine)').matches){
+    document.body.classList.add('cur');
+    var cur=document.getElementById('cur');
+    document.addEventListener('mousemove',function(e){cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';});
+  }
+
+  /* услуги: аккордеон-строки */
+  var srows=document.querySelectorAll('.srow');
+  for(var i=0;i<srows.length;i++){
+    srows[i].addEventListener('click',function(){
+      var open=this.classList.contains('open');
+      for(var j=0;j<srows.length;j++) srows[j].classList.remove('open');
+      if(!open) this.classList.add('open');
+    });
+  }
+
+  /* форма брифа */
+  var f=document.getElementById('brief-form');
+  if(f) f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=true;
+    ['bf-name','bf-tel'].forEach(function(id){
+      var el=document.getElementById(id);
+      if(!el.value.trim()){ok=false;el.style.borderColor='#FF6B4A';}
+      else el.style.borderColor='';
+    });
+    if(!ok) return;
+    document.getElementById('bf-ok').style.display='block';
+    f.reset();
+  });
+})();
+
+/* ===== WOW: собери свой сайт ===== */
+(function(){
+  var frame=document.getElementById('wowframe'); if(!frame) return;
+  var blocks=[].slice.call(frame.querySelectorAll('.site .wb'));
+  var STAMP=document.getElementById('wstamp');
+  var CNT=document.getElementById('wcnt'), STG=document.getElementById('wstage'), STG2=document.getElementById('wstage2');
+  var SB=[1,2,3,4,5].map(function(n){return document.getElementById('sb'+n);});
+  var REP=document.getElementById('wreplay');
+  var LOGO=document.getElementById('wlogo'), H1=document.getElementById('wh1'), BTN=document.getElementById('wbtn'), URL=document.getElementById('wurl');
+  var state={type:0,style:0,acc:'#C6F24E'};
+  var TYPE_TXT=[
+    {h:'Товар, который хочет каждый',btn:'КУПИТЬ СЕЙЧАС',logo:'МОЙ_БРЕНД',url:'мой-бренд.by'},
+    {h:'Компания, которой доверяют',btn:'ОСТАВИТЬ ЗАЯВКУ',logo:'МОЯ_КОМПАНИЯ',url:'моя-компания.by'},
+    {h:'Всё для дома в одном месте',btn:'В КАТАЛОГ',logo:'МОЙ_МАГАЗИН',url:'мой-магазин.by'},
+    {h:'Сервис, который экономит время',btn:'ПОПРОБОВАТЬ',logo:'МОЙ_СЕРВИС',url:'мой-сервис.by'}
+  ];
+  var STYLE_TXT=['Минимализм · воздух и смысл','Тёмный премиум · статус и стиль','Брутализм · дерзость и характер'];
+  var q=0, timer=null, running=false;
+
+  function applyState(){
+    var t=TYPE_TXT[state.type];
+    if(H1) H1.textContent=t.h;
+    if(BTN) BTN.textContent=t.btn;
+    if(LOGO) LOGO.textContent=t.logo;
+    if(URL) URL.textContent=t.url;
+    frame.style.setProperty('--wacc',state.acc);
+  }
+  function render(p){
+    q=Math.max(0,Math.min(1,p));
+    applyState();
+    var shown=Math.round(q*5);
+    for(var i=0;i<blocks.length;i++) blocks[i].classList.toggle('in',i<shown);
+    for(var s=0;s<5;s++){ if(SB[s]) SB[s].style.width=(q*5>s?100:0)+'%'; }
+    if(CNT) CNT.textContent=shown;
+    if(STG) STG.textContent=Math.min(5,Math.floor(q*5)+(q>=1?0:1));
+    if(STG2) STG2.textContent=Math.min(5,Math.floor(q*5)+(q>=1?0:1));
+    if(STAMP) STAMP.classList.toggle('on',q>=1);
+  }
+  function play(){
+    stop();
+    running=true;
+    if(REP) REP.classList.add('on');
+    var t0=Date.now(), DUR=6000;
+    (function step(){
+      if(!running) return;
+      var p=Math.min(1,(Date.now()-t0)/DUR);
+      render(p);
+      if(p<1){ timer=setTimeout(step,40); }
+      else { running=false; if(REP) REP.classList.remove('on'); }
+    })();
+  }
+  function stop(){ running=false; if(timer){clearTimeout(timer);timer=null;} }
+  if(REP) REP.addEventListener('click',play);
+
+  /* автозапуск при попадании в кадр */
+  var started=false;
+  setInterval(function(){
+    if(started) return;
+    var r=frame.getBoundingClientRect();
+    if(r.top<(window.innerHeight||800)-40&&r.bottom>0){ started=true; play(); }
+  },300);
+
+  /* чипы */
+  function bindChips(id,key){
+    var box=document.getElementById(id); if(!box) return;
+    var chips=box.querySelectorAll('.chip');
+    for(var i=0;i<chips.length;i++){
+      (function(idx){
+        chips[idx].addEventListener('click',function(){
+          for(var j=0;j<chips.length;j++) chips[j].classList.remove('on');
+          chips[idx].classList.add('on');
+          state[key]=idx;
+          applyState();
+        });
+      })(i);
+    }
+  }
+  bindChips('ch-type','type');
+  bindChips('ch-style','style');
+  var sws=document.querySelectorAll('#ch-acc .sw');
+  for(var w=0;w<sws.length;w++){
+    (function(idx){
+      sws[idx].addEventListener('click',function(){
+        for(var j=0;j<sws.length;j++) sws[j].classList.remove('on');
+        sws[idx].classList.add('on');
+        state.acc=sws[idx].getAttribute('data-c');
+        applyState();
+      });
+    })(w);
+  }
+
+  /* тест-доступ для детерминированных проверок */
+  window.__wow={render:render,play:play,stop:stop,state:state};
+})();
+</script>
+</body>
+</html>
